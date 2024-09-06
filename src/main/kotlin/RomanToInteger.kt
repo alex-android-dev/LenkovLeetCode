@@ -20,6 +20,3 @@ fun romanToInteger(s: String): Int {
     }
     return res
 }
-
-
-// XXIV 24
