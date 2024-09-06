@@ -1,42 +1,25 @@
 fun main() {
-    println(romanToInteger("MMMMLCV"))
+    println(romanToInteger("CL"))
 }
 
-fun romanToInteger(str: String): Int {
-    var resultInteger: Int = 0
+fun romanToInteger(s: String): Int {
+    var res: Int = 0
 
     val romanMap: Map<String, Int> =
         mapOf("I" to 1, "V" to 5, "X" to 10, "L" to 50, "C" to 100, "D" to 500, "M" to 1000)
 
-    val listOfInt: MutableList<Int> = mutableListOf()
+    for (ind in s.indices) {
+        val currentStr = s[ind].toString()
+        val currentValue = romanMap[currentStr]
 
-    str.map {
-        listOfInt.add(romanMap[it.toString()]!!)
-    }
-
-    // Заполнили лист значениями
-
-    for (ind in listOfInt.indices) {
-        val currentNumber = listOfInt[ind]
-
-        if (ind == listOfInt.size - 1) {
-            resultInteger += currentNumber
-            break
+        if (ind + 1 < s.length && currentValue!! < romanMap[s[ind+1].toString()]!!) {
+                res -= currentValue
+            }else {
+                res += currentValue!!
+            }
         }
-
-        val nextNumber = listOfInt[ind + 1]
-        if (currentNumber == 500 || currentNumber == 1000) {
-            resultInteger += currentNumber
-        } else if (currentNumber < nextNumber) {
-            resultInteger -= currentNumber
-        } else if (currentNumber > nextNumber) {
-            resultInteger += currentNumber
-        } else {
-            resultInteger += currentNumber
-        }
-    }
-
-    return resultInteger
+    return res
 }
 
-// todo: избавиться от !!. Добавить null безопасность
+
+// XXIV 24
