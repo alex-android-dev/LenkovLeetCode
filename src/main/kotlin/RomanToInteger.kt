@@ -12,12 +12,12 @@ fun romanToInteger(s: String): Int {
         val currentStr = s[ind].toString()
         val currentValue = romanMap[currentStr]
 
-        if (ind + 1 < s.length && currentValue!! < romanMap[s[ind+1].toString()]!!) {
-                res -= currentValue
-            }else {
-                res += currentValue!!
-            }
+        if (ind + 1 < s.length && currentValue!! < romanMap[s[ind + 1].toString()]!!) {
+            res -= currentValue
+        } else {
+            res += currentValue!!
         }
+    }
     return res
 }
 
