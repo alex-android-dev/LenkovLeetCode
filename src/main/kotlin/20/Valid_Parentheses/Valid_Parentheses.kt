@@ -35,9 +35,7 @@ class Solution {
             } else {
                 val top = if (stack.isEmpty()) '.'
                 else stack.pop()
-
                 if (top != brackets[char]) return false
-
             }
         }
         return stack.isEmpty()
