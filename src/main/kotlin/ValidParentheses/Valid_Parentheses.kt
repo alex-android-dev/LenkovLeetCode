@@ -1,4 +1,4 @@
-package `20`.Valid_Parentheses
+package ValidParentheses
 
 import java.util.Stack
 
